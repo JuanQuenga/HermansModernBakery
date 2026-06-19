@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Image from "@/components/compat/Image";
 
 export default function OrderPage() {
   const [serviceType, setServiceType] = useState("Pickup");

@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/compat/Image";
+import Link from "@/components/compat/Link";
 
 export default function GlobalError({
   error,
@@ -118,7 +118,7 @@ export default function GlobalError({
               </div>
 
               {/* Error Details (for development) */}
-              {process.env.NODE_ENV === "development" && (
+              {import.meta.env.DEV && (
                 <details className="mt-8 text-left max-w-2xl mx-auto">
                   <summary className="cursor-pointer text-[#F11A23] font-semibold font-sans mb-2">
                     Error Details (Development Only)

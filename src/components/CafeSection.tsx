@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/compat/Image";
+import Link from "@/components/compat/Link";
 import { Button } from "@/components/ui/button";
 import cafeData from "../data/cafe.json";
 

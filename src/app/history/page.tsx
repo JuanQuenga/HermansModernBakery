@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/compat/Image";
 
 export default function HistoryPage() {
   return (

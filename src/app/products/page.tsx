@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 import { productCategories } from "@/data/products";
-import Image from "next/image";
+import Image from "@/components/compat/Image";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShoppingBag } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -31,29 +31,37 @@ const allProductPhotos = [
 ];
 
 export default function ProductsPage() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const categories = productCategories.map((cat) => cat.category);
+  const searchCategory =
+    typeof location.search.category === "string"
+      ? location.search.category
+      : undefined;
   const initialCategory =
-    searchParams.get("category") &&
-    categories.includes(searchParams.get("category")!)
-      ? searchParams.get("category")!
+    searchCategory && categories.includes(searchCategory)
+      ? searchCategory
       : productCategories[0].category;
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
   useEffect(() => {
-    const param = searchParams.get("category");
-    if (param && categories.includes(param) && param !== activeCategory) {
-      setActiveCategory(param);
+    if (
+      searchCategory &&
+      categories.includes(searchCategory) &&
+      searchCategory !== activeCategory
+    ) {
+      setActiveCategory(searchCategory);
     }
-    // eslint-disable-next-line
-  }, [searchParams]);
+  }, [activeCategory, categories, searchCategory]);
 
   const handleTabChange = (category: string) => {
     setActiveCategory(category);
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("category", category);
-    router.replace(`?${params.toString()}`, { scroll: false });
+    navigate({
+      to: "/products",
+      search: { category },
+      replace: true,
+      resetScroll: false,
+    });
   };
 
   return (

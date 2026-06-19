@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/compat/Image";
+import Link from "@/components/compat/Link";
 import { useState } from "react";
 
 const navLinks = [

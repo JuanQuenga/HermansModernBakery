@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import LunchSpecials from "@/components/LunchSpecials";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { MapPin, Phone, Mail, Printer } from "lucide-react";
-import Image from "next/image";
+import Image from "@/components/compat/Image";
 
 export default function CafePage() {
   const cafeInfo = {

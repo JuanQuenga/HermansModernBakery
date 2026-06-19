@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
+import Image from "@/components/compat/Image";
 import { X } from "lucide-react";
 
 interface ModalProps {

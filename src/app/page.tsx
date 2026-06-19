@@ -4,7 +4,7 @@ import BakeryMap from "@/components/BakeryMap";
 import AboutUs from "@/components/AboutUs";
 import { productCategories } from "@/data/products";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import Link from "next/link";
+import Link from "@/components/compat/Link";
 
 export default function Home() {
   return (

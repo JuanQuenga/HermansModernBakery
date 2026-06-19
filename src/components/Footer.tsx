@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/compat/Image";
+import Link from "@/components/compat/Link";
 
 const footerLinks = [
   { label: "About", href: "/about" },
